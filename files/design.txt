@@ -1,0 +1,7 @@
+initial idea:
+
+
+
+design: 
+
+Application is going to utilise SQLite
