@@ -1,4 +1,4 @@
-<form action="{% url 'polls:vote' question.id %}" method="post">
+<form action="{% url 'polls:vote' question.id %}" method="post" style="width: 300px; text-align: center; padding-bottom: 20px;">
     {% csrf_token %}
     <fieldset>
         <legend><h1>{{ question.question_text }}</h1></legend>
@@ -8,5 +8,6 @@
             <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
         {% endfor %}
     </fieldset>
-    <input type="submit" value="Vote">
+    <br>
+    <input type="submit" value="Vote" class="btn btn-outline-success" style="height: 50px; width: 100px;">
     </form>
