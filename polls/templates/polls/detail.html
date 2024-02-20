@@ -1,4 +1,14 @@
-<form action="{% url 'polls:vote' question.id %}" method="post" style="width: 300px; text-align: center; padding-bottom: 20px;">
+{% extends 'home/main.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+{% include 'home/navbar.html' %}
+
+
+{% block content%}
+
+<div class="font">
+    <form action="{% url 'polls:vote' question.id %}" method="post" style="width: 300px; text-align: center; padding-bottom: 20px;">
     {% csrf_token %}
     <fieldset>
         <legend><h1>{{ question.question_text }}</h1></legend>
@@ -11,3 +21,6 @@
     <br>
     <input type="submit" value="Vote" class="btn btn-outline-success" style="height: 50px; width: 100px;">
     </form>
+</div>
+
+{% endblock content%}
