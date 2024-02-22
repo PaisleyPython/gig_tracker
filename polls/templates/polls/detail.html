@@ -1,11 +1,10 @@
-{% extends 'home/main.html' %}
+
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
-{% include 'home/navbar.html' %}
-
 
 {% block content%}
+
 
 <div class="font">
     <form action="{% url 'polls:vote' question.id %}" method="post" style="width: 300px; text-align: center; padding-bottom: 20px;">

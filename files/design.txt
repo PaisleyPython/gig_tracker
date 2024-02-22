@@ -1,11 +1,26 @@
-initial idea:
+initial idea: 
+Create web Application with the django framework to allow users to vote in a poll system on their availability for 
+date requests. Users will receive text prompt with link to poll. If users dont vote, then every 24hours they will receive another text prompt until vote is complete. 
+Once date has been added, then it will be added to confirmed page, which ideally will have link to a google calander API. 
+
+
+TODO: 
+
+- create new branch in order to work on authorisation. 
+- Fix header with icons
+- Fix SVG logo
+- Create a confirmed dates page
+- Figure out writing script for itegration with text message api service
+- Look to integrate google API for calander 
+- User Log in page
+- Ensure user can only vote once per date
+- have requirements for core band members. (drums, guitars, vocals, and 2 brass)
 
 
 
 design: 
 
 Application is going to utilise SQLite
-
 
 In our poll app, we’ll create two models: Question and Choice. A Question has a question and a publication date. A Choice has two fields: the text of the choice and a vote tally. Each Choice is associated with a Question.
 
