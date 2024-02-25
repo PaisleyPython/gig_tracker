@@ -1,29 +1,31 @@
-
-
-{% load static %}
-<link rel="stylesheet" href="{% static 'polls/style.css' %}">
-{% include 'home/navbar.html' %}
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+    {% include 'home/navbar.html' %}
+</head>
 
 {% block content %}
 
-<div class="font"">
+<div class="display"">
     <h1>{{ question.question_text }}</h1>
+    <br>
+</div>
+<div id="results">
     <ul>
+        <br>
         {% for choice in question.choice_set.all %}
         <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
         {% endfor %}
     </ul>
-    <br>
-    <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
-    <div class="center">
-        <a href="/polls/">
-            
-            <button id="button" class="btn btn-outline-success" style="height: 75px; width: 150px; position:relative; top:-50px;">Vote Again?</button>
-        </a>
-    </div>
 </div>
 
-{% endblock content %}
+<br>
+
+<div id="butt">
+    <a href="/polls/" class="btn btn-outline-success" style="height: 50px; width: 150px; position:relative; top: -50px;" >Vote again?</a>
+</div>
+    
+    {% endblock content %}
 
 
 

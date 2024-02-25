@@ -1,20 +1,78 @@
+body {
+    background: white url("images/background.png") no-repeat;
+    background-size: 100%;
+}   
+
 li a {
     color: #1ca22a;
 }       
 
-body {
-    background: white url("images/background.png") no-repeat;
-    background-size: 100%;
+.display {
+    display: flex;
+    justify-content: center;
+    margin-top: 350px;
+    color:#1ca22a;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.font {
+/* index Page ====================================*/
+
+#font {
+    font-size: 1.50rem;
+}
+
+/* Home Page ====================================*/
+#head {
+    display: flex;
+    justify-content: center;
+    margin-top: 300px;
+}
+
+#butt {
     display: flex;
     justify-content: center;
     margin-top: 100px;
+    height: 200px;
+    position: relative;
+}
+
+/* detail page ======================================= */
+
+.cont {
+    height: 300px;
+    position: relative;
+        
+    }
+
+/* results page ======================================= */
+
+#results {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
     color:#1ca22a;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 1rem;
+    font-size: 1.50rem;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* .nav{
     color: #1ca22a;
@@ -24,3 +82,4 @@ body {
 /* .nav.navbar-nav.navbar-right li a {
     color: blue;
 } */
+

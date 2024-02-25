@@ -1,16 +1,17 @@
-
-
-{% load static %}
-<link rel="stylesheet" href="{% static 'polls/style.css' %}">
-
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+</head>
+    
 {% block content%}
 
+<div class="display">
+    <div class="cont">
 
-<div class="font">
-    <form action="{% url 'polls:vote' question.id %}" method="post" style="width: 300px; text-align: center; padding-bottom: 20px;">
-    {% csrf_token %}
-    <fieldset>
-        <legend><h1>{{ question.question_text }}</h1></legend>
+        <form action="{% url 'polls:vote' question.id %}" method="post" style="width: 300px; text-align: center; padding-bottom: 20px;">
+            {% csrf_token %}
+            <fieldset>
+                <legend><h1>{{ question.question_text }}</h1></legend>
         {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
         {% for choice in question.choice_set.all %}
             <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
@@ -20,6 +21,7 @@
     <br>
     <input type="submit" value="Vote" class="btn btn-outline-success" style="height: 50px; width: 100px;">
     </form>
+</div>
 </div>
 
 {% endblock content%}
