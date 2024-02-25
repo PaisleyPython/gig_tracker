@@ -11,6 +11,10 @@ def home(request):
     return render(request, 'home/home.html')
 
 
+def calendar(request):
+    return render(request, 'polls/calendar.html')
+
+
 class IndexView(generic.ListView):
     template_name = "polls/index.html"
     context_object_name = "latest_question_list"
