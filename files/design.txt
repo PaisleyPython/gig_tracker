@@ -40,3 +40,7 @@ The final step is to enter your password. You will be asked to enter your passwo
 Password: **********
 Password (again): *********
 Superuser created successfully.
+
+
+git fetch origin master
+git reset --hard origin/master
