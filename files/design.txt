@@ -46,3 +46,14 @@ git fetch origin master
 git reset --hard origin/master
 
 Twilio - 958WUEE8VQS5NBNAP9LFLV87
+
+
+
+==========================================
+
+The logic of gig acceptance.. 
+
+There needs to be a minimum requirement of accepted members with some considered core. 
+Once threshold has been reached, gig will automatically get accepted and uploaded to the confimed page. 
+text message notifications then need to be triggered and send to the members. 
+

@@ -1,7 +1,15 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+    {% include 'home/navbar.html' %}
+</head>
+
+{% block content%}
+
+<div class="display">
+<h1>CONFIRMED DATES</h1>
+
+</div>
 
 
-{% block contact %}
-
-<h1>CALANDER PAGE</h1>
-
-{% endblock contact %}
+{% endblock content%}
