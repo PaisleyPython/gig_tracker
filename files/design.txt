@@ -8,8 +8,6 @@ TODO:
 
 - create new branch in order to work on authorisation. 
 - Fix header with icons
-- Fix SVG logo
-- Create a confirmed dates page
 - Figure out writing script for itegration with text message api service
 - Look to integrate google API for calendar
 - User Log in page
