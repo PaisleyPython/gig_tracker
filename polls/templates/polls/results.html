@@ -1,8 +1,5 @@
-<head>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
-    {% include 'home/navbar.html' %}
-</head>
+{% extends 'home/main.html' %}
+
 
 {% block content %}
 
@@ -23,7 +20,7 @@
     <a href="/polls/" class="btn btn-outline-success" style="height: 50px; width: 150px; position:relative; top: -50px;" >Vote again?</a>
 </div>
     
-    {% endblock content %}
+{% endblock content %}
 
 
 

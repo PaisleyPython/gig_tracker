@@ -11,7 +11,7 @@ TODO:
 - Fix SVG logo
 - Create a confirmed dates page
 - Figure out writing script for itegration with text message api service
-- Look to integrate google API for calander 
+- Look to integrate google API for calendar
 - User Log in page
 - Ensure user can only vote once per date
 - have requirements for core band members. (drums, guitars, vocals, and 2 brass)
@@ -56,4 +56,12 @@ The logic of gig acceptance..
 There needs to be a minimum requirement of accepted members with some considered core. 
 Once threshold has been reached, gig will automatically get accepted and uploaded to the confimed page. 
 text message notifications then need to be triggered and send to the members. 
+I would also then like for the gmail calendar to be updated if this is possible.. 
+
+
+
+
+gmail api = https://v1.nocodeapi.com/disco_panther/calendar/sRJIrdwKtVyDuCJI
+
+
 
