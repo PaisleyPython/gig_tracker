@@ -14,6 +14,8 @@ TODO:
 - Ensure user can only vote once per date
 - have requirements for core band members. (drums, guitars, vocals, and 2 brass)
 
+- Idea for the calendar page. 
+    Make use of django tables. Allow user to view arranged gigs and table info could contain, location, sets, backline, fee and number of panthers playing the show. 
 
 
 design: 
