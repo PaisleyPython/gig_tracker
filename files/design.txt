@@ -63,5 +63,4 @@ I would also then like for the gmail calendar to be updated if this is possible.
 
 gmail api = https://v1.nocodeapi.com/disco_panther/calendar/sRJIrdwKtVyDuCJI
 
-
-
+bit branch gig_cards
