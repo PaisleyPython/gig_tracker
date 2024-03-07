@@ -1,7 +1,8 @@
 body {
-    background: white url("images/background.png") no-repeat;
+    background: white url("background.png") no-repeat;
     background-size: 100%;
 }   
+
 
 li a {
     color: #1ca22a;

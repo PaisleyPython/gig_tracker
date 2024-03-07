@@ -2,6 +2,7 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from django.contrib import admin
+from users.models import Profile
 
 
 class Question(models.Model):
@@ -22,6 +23,8 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
+    members = models.ForeignKey(
+        Profile, null=True, blank=True, on_delete=models.SET_NULL)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
