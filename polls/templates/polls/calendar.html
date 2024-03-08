@@ -3,8 +3,29 @@
 {% block content%}
 
 <div class="display">
-<h1>CONFIRMED DATES</h1>
+<div class="font">
 
+    <table>
+
+        
+        {% for gigs in calendar %}
+
+        <tr>
+            <td>{{gigs.venue}}</td>
+            <td>{{gigs.fee}}</td>
+            <td>{{gigs.set_type}}</td>
+            <td>{{gigs.request}}</td>
+        </tr>
+
+        
+        <br>
+        
+        
+        {% endfor %}
+        
+    </table>
+
+</div>
 </div>
 
 
