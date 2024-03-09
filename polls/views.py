@@ -13,7 +13,8 @@ def home(request):
 
 def calendar(request):
     calendar = ConfirmedGigs.objects.all()
-    context = {'calendar': calendar}
+    votes = Choice.objects.all()
+    context = {'calendar': calendar, 'votes': votes}
     return render(request, 'polls/calendar.html', context)
 
 

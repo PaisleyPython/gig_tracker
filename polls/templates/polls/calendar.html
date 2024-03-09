@@ -3,30 +3,63 @@
 {% block content%}
 
 <div class="display">
-<div class="font">
+    <div class="font">
 
-    <table>
+    <h1>CONFIRMED GIGS</h1>
 
-        
+</div>
+</div>
+
+    <!-- Gig Cards -->
+<main class="projects">
+<section class="projectsList">
+    <div class="container">
+    <div class="grid grid--three">
+
         {% for gigs in calendar %}
 
-        <tr>
-            <td>{{gigs.venue}}</td>
-            <td>{{gigs.fee}}</td>
-            <td>{{gigs.set_type}}</td>
-            <td>{{gigs.request}}</td>
-        </tr>
+        <div class="column">
+        <div class="card gig">
+        <div class="card__body">
+            <h3 class="project__title">{{gigs.request}}</h3>
+            <ul style="font-size: medium;">
+                <li>{{gigs.venue}}</li>
+                <li>{{gigs.fee}}</li>
+                <li>{{gigs.set_type}}</li>
+                <!-- <li>{{gigs.votes.votes}}</li> -->
+            </ul>
+            <p>{{gigs.additional_info}}</p>
 
-        
-        <br>
-        
-        
-        {% endfor %}
-        
-    </table>
+            <div class="project__tags">
+                <span class="tag tag--pill tag--main">
+                    <small>{{gigs.tags}}</small>
+                </span>
+            </div>
+        </div>
+        </a>
+    </div>
+    </div>
+    <br>
 
-</div>
-</div>
-
+    {% endfor %}
+    
+</section>
+</main>
 
 {% endblock content%}
+
+
+
+
+            <!-- <a href="single-project.html" class="project"> -->
+            <!-- <img class="project__thumbnail" src="images/project-a.png" alt="project thumbnail" /> -->
+                <!-- <p><a class="project__author" href="profile.html">{{gigs.request}}</a></p> -->
+                <!-- <p class="project--rating">
+                <span style="font-weight: bold;">98%</span> Postitive
+                Feedback (72 Votes)
+                </p> -->
+                <!-- <div class="project__tags">
+                <span class="tag tag--pill tag--main">
+                    <small>NextJS</small>
+                </span>
+                </div> -->

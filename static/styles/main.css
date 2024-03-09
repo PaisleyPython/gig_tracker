@@ -1,3 +1,5 @@
+/* main ============================================ */
+
 body {
     background: white url("background.png") no-repeat;
     background-size: 100%;
@@ -56,7 +58,15 @@ li a {
     font-size: 1.50rem;
 }
 
-/*  nav========================== */
+/* calendar ======================================= */
+
+
+.card {
+    border: 2px solid var(--color-light);
+  }
+  
+
+/*  nav bar ======================================= */
 
 
 .bg-dark {
@@ -106,6 +116,8 @@ div {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
 }
+
+
 
 
 

@@ -1,0 +1,117 @@
+body {
+    background: white url("background.png") no-repeat;
+    background-size: 100%;
+}   
+
+
+li a {
+    color: #1ca22a;
+}       
+
+.display {
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+    color:#1ca22a;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* index Page ====================================*/
+
+#font {
+    font-size: 1.40rem;
+}
+
+/* Home Page ====================================*/
+#head {
+    display: flex;
+    justify-content: center;
+    margin-top: 130px;
+}
+
+#butt {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    height: 200px;
+    position: relative;
+}
+
+/* detail page ======================================= */
+
+.cont {
+    height: 200px;
+    position: relative;
+        
+    }
+
+/* results page ======================================= */
+
+#results {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    color:#1ca22a;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.50rem;
+}
+
+/*  nav========================== */
+
+
+.bg-dark {
+    background-color: #212529 !important;
+
+  
+}
+.text-white {
+
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: white;
+
+    -webkit-text-size-adjust: 90%;
+    -webkit-tap-highlight-color: transparent;
+    color: white !important;
+    font-size: 1.3rem;
+
+}
+.py-2 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+.px-3 {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+#nav {
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
+    margin: 0;
+    font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 150;
+    line-height: 1.5;
+    color: #212529;
+    /* background-color: teal; */
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+
+
+
+
+
+
+
