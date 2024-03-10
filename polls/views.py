@@ -5,6 +5,7 @@ from django.views import generic
 from .models import Choice, Question, ConfirmedGigs
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from .forms import ConfirmedGigsForm
 
 
 def home(request):
@@ -16,6 +17,12 @@ def calendar(request):
     votes = Choice.objects.all()
     context = {'calendar': calendar, 'votes': votes}
     return render(request, 'polls/calendar.html', context)
+
+
+def createGig(request):
+    form = ConfirmedGigsForm()
+    context = {'form': form}
+    return render(request, 'polls/gig-form.html', context)
 
 
 class IndexView(generic.ListView):
