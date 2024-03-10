@@ -6,6 +6,9 @@ Once date has been added, then it will be added to confirmed page, which ideally
 
 TODO: 
 
+- Create form for poll request
+- Create form for gig details
+
 - create new branch in order to work on authorisation. 
 - Fix header with icons
 - Figure out writing script for itegration with text message api service
@@ -14,8 +17,7 @@ TODO:
 - Ensure user can only vote once per date
 - have requirements for core band members. (drums, guitars, vocals, and 2 brass)
 
-- Idea for the calendar page. 
-    Make use of django tables. Allow user to view arranged gigs and table info could contain, location, sets, backline, fee and number of panthers playing the show. 
+
 
 
 design: 
@@ -64,3 +66,10 @@ I would also then like for the gmail calendar to be updated if this is possible.
 gmail api = https://v1.nocodeapi.com/disco_panther/calendar/sRJIrdwKtVyDuCJI
 
 bit branch gig_cards
+
+Merge branches:
+
+git checkout master
+git pull origin master
+git merge test
+git push origin master

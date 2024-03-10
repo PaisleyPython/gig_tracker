@@ -7,21 +7,21 @@ body {
 
 
 li a {
-    color: #1ca22a;
+    color: #00ff7b;
 }       
 
 .display {
     display: flex;
     justify-content: center;
-    margin-top: 120px;
-    color:#1ca22a;
+    margin-top: 100px;
+    color:#00ff7b;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* index Page ====================================*/
 
 #font {
-    font-size: 1.40rem;
+    font-size: 1.60rem;
 }
 
 /* Home Page ====================================*/
@@ -53,18 +53,20 @@ li a {
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    color:#1ca22a;
+    color:#00ff7b;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 1.50rem;
 }
 
 /* calendar ======================================= */
 
-
-.card {
-    border: 2px solid var(--color-light);
-  }
-  
+.heading {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    color:#00ff7b;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
 /*  nav bar ======================================= */
 
@@ -117,8 +119,72 @@ div {
     -webkit-tap-highlight-color: transparent;
 }
 
+/* tags =========================================================*/
 
 
+
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-sub);
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .tag:not(:last-child) {
+    margin-right: 0.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .tag > small {
+    color: var(--color-white);
+  }
+  
+  .tag--outline > small {
+    color: var(--color-sub);
+  }
+  
+  .tag--outline {
+    border: 2px solid var(--color-sub);
+    background-color: transparent;
+    padding: 0.4rem 1rem;
+  }
+  
+  .tag--pill {
+    border-radius: 5rem;
+  }
+  
+  .tag--main, .tag--main > small {
+    background: #76f4b1;
+    color: #b50cff;
+    font-weight: 500;
+  }
+  
+  .tag--main, .tag--main > small {
+    background: #76f4b1;
+    color: #b50cff;
+    font-weight: 500;
+  }
+  
+  .tag--lg {
+    padding: 0.8rem 3rem;
+    font-size: 1.4rem;
+  }
+  
+  .tag--lg:not(:last-child) {
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
 
 
 

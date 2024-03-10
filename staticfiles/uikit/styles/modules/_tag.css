@@ -37,17 +37,15 @@
   border-radius: 5rem;
 }
 
-.tag--main,
-.tag--main > small {
-  background: var(--color-main-light);
-  color: var(--color-main);
+.tag--main, .tag--main > small {
+  background: #76f4b1;
+  color: #b50cff;
   font-weight: 500;
 }
 
-.tag--sub,
-.tag--sub > small {
-  background: var(--color-sub-lighter);
-  color: var(--color-sub-light);
+.tag--main, .tag--main > small {
+  background: #76f4b1;
+  color: #b50cff;
   font-weight: 500;
 }
 

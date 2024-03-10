@@ -18,12 +18,6 @@ def calendar(request):
     return render(request, 'polls/calendar.html', context)
 
 
-def gigInfo(request, pk):
-    gigObj = ConfirmedGigs.objects.get(id=pk)
-    tags = gigObj.tags.all()
-    return render(request, 'polls/gig-info.html', {'gigInfo': gigObj, 'tags': tags})
-
-
 class IndexView(generic.ListView):
     template_name = "polls/index.html"
     context_object_name = "latest_question_list"

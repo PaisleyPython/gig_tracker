@@ -2,12 +2,8 @@
 
 {% block content%}
 
-<div class="display">
-    <div class="font">
-
-    <h1>CONFIRMED GIGS</h1>
-
-</div>
+<div class="heading">
+    <h1 style="font-size: 3rem">- CONFIRMED GIGS -</h1>
 </div>
 
     <!-- Gig Cards -->
@@ -29,11 +25,13 @@
                 <!-- <li>{{gigs.votes.votes}}</li> -->
             </ul>
             <p>{{gigs.additional_info}}</p>
+            <div class="project__tags" >
 
-            <div class="project__tags">
-                <span class="tag tag--pill tag--main">
-                    <small>{{gigs.tags}}</small>
+            {% for tag in gigs.tags.all %}
+                <span class="tag tag--pill tag--main"">
+                    <small>{{tag}}</small>
                 </span>
+            {% endfor %}
             </div>
         </div>
         </a>

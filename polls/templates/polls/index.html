@@ -3,8 +3,9 @@
 {% block content %}
 
 <div id="font">
-
+    
     <div class="display">
+
         {% if latest_question_list %}
         <ul>
             {% for question in latest_question_list %}
@@ -15,6 +16,10 @@
         {% else %}
         <p>No polls are available.</p>
         {% endif %}
+
+        <button>
+            Create Poll
+        </button>
     </div>
 
 </div>
