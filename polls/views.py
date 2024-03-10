@@ -5,7 +5,7 @@ from django.views import generic
 from .models import Choice, Question, ConfirmedGigs
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .forms import ConfirmedGigsForm
+from .forms import ConfirmedGigsForm, QuestionForm
 
 
 def home(request):
@@ -21,8 +21,42 @@ def calendar(request):
 
 def createGig(request):
     form = ConfirmedGigsForm()
+
+    if request.method == 'POST':
+        form = ConfirmedGigsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/calendar/')
+
     context = {'form': form}
     return render(request, 'polls/gig-form.html', context)
+
+
+def createPoll(request):
+    form = QuestionForm()
+
+    if request.method == 'POST':
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/index/')
+
+    context = {'form': form}
+    return render(request, 'polls/poll-form.html', context)
+
+
+# def updateGig(request, pk):
+#     gig = ConfirmedGigs.objects.get(id=pk)
+#     form = ConfirmedGigsForm(instance=gig)
+
+#     if request.method == 'POST':
+#         form = ConfirmedGigsForm(request.POST, instance=gig)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/calendar/')
+
+#     context = {'form': form}
+#     return render(request, 'polls/gig-form.html', context)
 
 
 class IndexView(generic.ListView):

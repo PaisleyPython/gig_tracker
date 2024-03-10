@@ -1,0 +1,15 @@
+{% extends 'home/main.html' %}
+
+{% block content %}
+
+<div action="/calendar/"class="display">
+        <form method="POST">
+            {% csrf_token %}
+            
+            {{form.as_p}}
+            
+            <input style="background-color: purple; width: 100px; height: 25px;" type="submit">
+        </form>
+    </div>  
+
+{% endblock content %}

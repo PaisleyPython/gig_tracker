@@ -1,14 +1,19 @@
 from django.forms import ModelForm
-from .models import ConfirmedGigs
+from django import forms
+from .models import ConfirmedGigs, Question
 
 
 class ConfirmedGigsForm(ModelForm):
     class Meta:
         model = ConfirmedGigs
-        fields = '__all__'
+        fields = ['request', 'venue', 'fee',
+                  'set_type', 'additional_info']
 
 
-# class ChoiceForm(ModelForm):
-#     class Meta:
-#         model = Choice
-#         field = '__all__'
+class QuestionForm(ModelForm):
+    class Meta:
+        model = Question
+        fields = ['question_text']
+        widgets = {
+            'question_text': forms.TextInput(attrs={'placeholder': 'Date: xx/xx/xxxx'}),
+        }

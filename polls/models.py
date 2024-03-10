@@ -5,6 +5,8 @@ from django.contrib import admin
 from users.models import Profile
 import uuid
 
+# have a placeHolder for the question text field so that the cards look the same 'Date:' then xx/xx/xxxx
+
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
