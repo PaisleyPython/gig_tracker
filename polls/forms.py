@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import ConfirmedGigs, Question
+from .models import ConfirmedGigs, Choice
 
 
 class ConfirmedGigsForm(ModelForm):
@@ -9,11 +9,26 @@ class ConfirmedGigsForm(ModelForm):
         fields = ['request', 'venue', 'fee',
                   'set_type', 'additional_info']
 
+    def __init__(self, *args, **kwargs):
+        super(ConfirmedGigsForm, self).__init__(*args, **kwargs)
+
+        self.fields['venue'].widget.attrs.update({'class': 'input'})
+        self.fields['fee'].widget.attrs.update(
+            {'class': 'input', 'placeholder': 'E.g: £800.00'})
+        self.fields['set_type'].widget.attrs.update(
+            {'class': 'input', 'placeholder': 'E.g: "2x 45min sets"'})
+        self.fields['additional_info'].widget.attrs.update(
+            {'class': 'input', 'placeholder': 'E.g: Backline provided. Bring additional mic stands.'})
+
+        # for name, field in self.fields.items():
+        #     field.widget.attrs.update({'class': 'input'})
+
 
 class QuestionForm(ModelForm):
     class Meta:
-        model = Question
-        fields = ['question_text']
+        model = Choice
+        fields = ['question']
+
         widgets = {
-            'question_text': forms.TextInput(attrs={'placeholder': 'Date: xx/xx/xxxx'}),
+            'question': forms.TextInput(attrs={'placeholder': 'Date: xx/xx/xxxx'}),
         }

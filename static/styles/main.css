@@ -68,6 +68,18 @@ li a {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+/* gigform ======================================== */
+
+.gigform { 
+    display: flex;
+    justify-content: center;
+    color:purple;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+
+}
+
+
 /*  nav bar ======================================= */
 
 
@@ -120,9 +132,6 @@ div {
 }
 
 /* tags =========================================================*/
-
-
-
 
 .tag {
     display: inline-flex;
