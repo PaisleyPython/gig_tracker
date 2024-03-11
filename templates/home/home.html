@@ -10,14 +10,34 @@
     <img src="{% static 'images/head.png' %}" alt="" style="height:330px;">
 </div>
 
-<div id="butt">
-    <a href="/polls/">
-        <button id="butt" class="btn btn-outline-success" style="height: 50px; width: 150px; position:relative; top: -50px;">Enter</button>
-    </a>
+
+<div class="container">
+    <div class="gigform">
+            <form action="{% url 'login' %}" method="POST" style="display: block; width: 150px; margin: 2px;" >
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" />
+                <input type="password" name="password" placeholder="Enter Password"/>
+                <input style="background-color: #76f4b1; width: 100px; height: 45px;" type="submit">
+            </form>
+
+</div>
 </div>
 
 
-<img src="home/head.svg" alt="">
+<!-- 
+<div id="butt">
+    <a href="/polls/">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" />
+            <input type="password" name="password" placeholder="Enter Password"/>
+            <input type="submit" name="Login" />
+        </form>
+        
+        <button id="butt" class="btn btn-outline-success" style="height: 50px; width: 150px; position:relative; top: -50px;">Enter</button>
+    </a>
+</div> -->
+
 
 
 

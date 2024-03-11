@@ -12,7 +12,8 @@ class ConfirmedGigsForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(ConfirmedGigsForm, self).__init__(*args, **kwargs)
 
-        self.fields['venue'].widget.attrs.update({'class': 'input'})
+        self.fields['venue'].widget.attrs.update(
+            {'class': 'input', 'placeholder': 'E.g: Venue, City/Town'})
         self.fields['fee'].widget.attrs.update(
             {'class': 'input', 'placeholder': 'E.g: £800.00'})
         self.fields['set_type'].widget.attrs.update(
