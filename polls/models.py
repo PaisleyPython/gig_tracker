@@ -59,19 +59,3 @@ class NameTag(models.Model):
 
     def __str__(self):
         return self.name
-
-
-# def createGig(sender, instance, created, **kwargs):
-#     if created:
-#         date = instance
-#         poll = Question.objects.create(
-#             date=date.choice_text,
-
-#         )
-
-# Working with signals, i dont want the poll to be created after gig is created.
-# The sequence needs to be..
-# Create poll > send signal to members > then once x amount of members vote in favour > auto populate create gig form to later be updated with additional information.
-
-
-# post_save.connect(createGig, sender=Choice)
