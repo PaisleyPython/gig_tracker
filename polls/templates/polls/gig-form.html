@@ -2,41 +2,36 @@
 
 {% block content %}
 
-<div action="/calendar/"class="display">
-        <form method="POST">
-            {% csrf_token %}
-            
-            {{form.as_p}}
-            
-            <input style="background-color: purple; width: 100px; height: 25px;" type="submit">
-        </form>
-    </div>  
-        
     <!-- Main Section -->
-<!-- <main class="formPage my-xl">
-        <div class="content-box">
-            <div class="formWrapper">
-                <a class="backButton" href="#"><i class="im im-angle-left"></i></a>
-                <br>
+    <div class="auth__header text-center">
+        
+<!-- <div class="font"> -->
+<div class="gigform">
+    <main class="formPage my-xl">
+    <div class="content-box">
+    <!-- <div class="formWrapper"> -->
+    <!-- <a class="backButton" href="#"><i class="im im-angle-left"></i></a> -->
+        <form class="form" method="POST" enctype="multipart/form-data ">
                 
-                <form class="form" method="POST" enctype="multipart/form-data">
-                    
-                {% for field in form %}
-                {% csrf_token %} -->
-
-
-                <!-- Input:Text -->
-                <!-- <div class="form__field">
-                    <label for="formInput#text">{{field.label}}</label>
-                </div>
+            {% for field in form %}
+            {% csrf_token %}
                 
-                {% endfor %}
-                
-                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
-            </form>
-        </div>
+            <!-- Input:Text -->
+            <div class="form__field" >
+            <label style="color:#76f4b1" for="formInput#text">{{field.label}}</label>
+            {{field}}
+        </div>  
+        {% endfor %}
+            
+            <input style="background-color: #76f4b1; width: 100px; height: 25px; border-radius: 8px;" type="submit">
+        </form>
     </div>
-</main> -->
+</div>
+</div>
+</div>
+
+
+</main>
 
 
 {% endblock content %}
