@@ -6,11 +6,7 @@ Once date has been added, then it will be added to confirmed page, which ideally
 
 TODO: 
 
-- Create form for poll request
-- Create form for gig details
-
-- create new branch in order to work on authorisation. 
-- Fix header with icons
+- Create signals model to be able to utilise for notifications about new poll creation
 - Figure out writing script for itegration with text message api service
 - Look to integrate google API for calendar
 - User Log in page
@@ -71,5 +67,5 @@ Merge branches:
 
 git checkout master
 git pull origin master
-git merge test
+git merge <name>
 git push origin master

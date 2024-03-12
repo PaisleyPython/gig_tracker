@@ -4,8 +4,14 @@ from django.utils import timezone
 from django.contrib import admin
 from users.models import Profile
 import uuid
+from django.db.models.signals import post_save
 
-# have a placeHolder for the question text field so that the cards look the same 'Date:' then xx/xx/xxxx
+
+def profileUpdated(sender, instance, created, **kwargs):
+    print('Profile Saved')
+
+
+post_save.connect(profileUpdated, sender=Profile)
 
 
 class Question(models.Model):
@@ -30,7 +36,8 @@ class Choice(models.Model):
 class ConfirmedGigs(models.Model):
     request = models.ForeignKey(
         Question, null=True, blank=True, on_delete=models.CASCADE)
-    venue = models.CharField(max_length=100)
+
+    venue = models.CharField(max_length=100, null=True, blank=True)
     fee = models.CharField(max_length=10, null=True, blank=True)
     set_type = models.CharField(max_length=50, null=True, blank=True)
     additional_info = models.TextField(max_length=200, null=True, blank=True)
@@ -52,3 +59,19 @@ class NameTag(models.Model):
 
     def __str__(self):
         return self.name
+
+
+# def createGig(sender, instance, created, **kwargs):
+#     if created:
+#         date = instance
+#         poll = Question.objects.create(
+#             date=date.choice_text,
+
+#         )
+
+# Working with signals, i dont want the poll to be created after gig is created.
+# The sequence needs to be..
+# Create poll > send signal to members > then once x amount of members vote in favour > auto populate create gig form to later be updated with additional information.
+
+
+# post_save.connect(createGig, sender=Choice)
