@@ -7,14 +7,14 @@ body {
 
 
 li a {
-    color: #00ff7b;
+    color: #76f4b1;
 }       
 
 .display {
     display: flex;
     justify-content: center;
     margin-top: 100px;
-    color:#00ff7b;
+    color:#76f4b1;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -53,7 +53,7 @@ li a {
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    color:#00ff7b;
+    color:#76f4b1;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 1.50rem;
 }
@@ -64,7 +64,7 @@ li a {
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    color:#00ff7b;
+    color:#76f4b1;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -73,6 +73,7 @@ li a {
 .gigform { 
     display: flex;
     justify-content: center;
+    padding-top: 5px;
     color:purple;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 1.2rem;

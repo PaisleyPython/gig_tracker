@@ -6,12 +6,14 @@ from .models import Choice, Question, ConfirmedGigs
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .forms import ConfirmedGigsForm, QuestionForm
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
     return render(request, 'home/home.html')
 
 
+@login_required(login_url="/")
 def calendar(request):
     calendar = ConfirmedGigs.objects.all()
     votes = Choice.objects.all()
@@ -19,6 +21,7 @@ def calendar(request):
     return render(request, 'polls/calendar.html', context)
 
 
+@login_required(login_url="/")
 def createGig(request):
     form = ConfirmedGigsForm()
 
@@ -32,6 +35,7 @@ def createGig(request):
     return render(request, 'polls/gig-form.html', context)
 
 
+@login_required(login_url="/")
 def createPoll(request):
     form = QuestionForm()
 
@@ -78,6 +82,7 @@ class ResultsView(generic.DetailView):
     template_name = "polls/results.html"
 
 
+@login_required(login_url="/")
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:

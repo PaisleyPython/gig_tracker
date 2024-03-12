@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
-
-# Create your views here.
+from django.contrib import messages
 from .models import Profile
 
 # ==================================================================
@@ -19,13 +18,13 @@ def loginUser(request):
         try:
             user = User.objects.get(username=username)
         except:
-            print("Username does not exist")
+            messages.error(request, 'Username does not exist')
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             return redirect('polls')
         else:
-            print("Username or Password is incorrect")
+            messages.error(request, 'Username OR Password is incorrect')
 
     return render(request, 'home/home.html')
 
@@ -34,6 +33,7 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
+    messages.error(request, 'User was logged out')
     return redirect('login')
 
 # ==================================================================
