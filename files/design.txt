@@ -6,12 +6,18 @@ Once date has been added, then it will be added to confirmed page, which ideally
 
 TODO: 
 
-- Create signals model to be able to utilise for notifications about new poll creation
-- Figure out writing script for itegration with text message api service
 - Look to integrate google API for calendar
-- User Log in page
 - Ensure user can only vote once per date
 - have requirements for core band members. (drums, guitars, vocals, and 2 brass)
+- Create phonebook for users to use with signals
+- Figure out why signal is sending 2 messages every executuion.
+- Have tags update to gig cards ever time user casts their vote. 
+- Clean code
+- Think about how you're going to deploy this application.. Is it going to be off the back of the website. 
+- Make use of environment variables for twilio details. 
+- Clean up poll index page
+- Fix buttons for polls and results page
+
 
 
 
