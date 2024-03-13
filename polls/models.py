@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib import admin
 from users.models import Profile
+from django.contrib.auth.models import User
 import uuid
 from django.db.models.signals import post_save
 
@@ -31,6 +32,13 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+class Voter(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True, blank=True)
+    poll = models.ForeignKey(
+        Choice, on_delete=models.CASCADE, null=True, blank=True)
 
 
 class ConfirmedGigs(models.Model):

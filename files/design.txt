@@ -6,17 +6,19 @@ Once date has been added, then it will be added to confirmed page, which ideally
 
 TODO: 
 
-- Look to integrate google API for calendar
+- Usersnames and passwords arent currently working.. 
 - Ensure user can only vote once per date
 - have requirements for core band members. (drums, guitars, vocals, and 2 brass)
-- Create phonebook for users to use with signals
-- Figure out why signal is sending 2 messages every executuion.
 - Have tags update to gig cards ever time user casts their vote. 
-- Clean code
-- Think about how you're going to deploy this application.. Is it going to be off the back of the website. 
-- Make use of environment variables for twilio details. 
-- Clean up poll index page
+- Look to integrate google API for calendar
 - Fix buttons for polls and results page
+- Clean up poll index page
+
+- Clean code
+- Make use of environment variables for twilio details. 
+- Figure out why signal is sending 2 messages every executuion.
+- Create phonebook for users to use with signals
+- Think about how you're going to deploy this application.. Is it going to be off the back of the website. 
 
 
 

@@ -2,15 +2,19 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views import generic
-from .models import Choice, Question, ConfirmedGigs
+from .models import Choice, Question, ConfirmedGigs, Voter
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .forms import ConfirmedGigsForm, QuestionForm
 from django.contrib.auth.decorators import login_required
 
+# =================================================================
+
 
 def home(request):
     return render(request, 'home/home.html')
+
+# =================================================================
 
 
 @login_required(login_url="/")
@@ -19,6 +23,9 @@ def calendar(request):
     votes = Choice.objects.all()
     context = {'calendar': calendar, 'votes': votes}
     return render(request, 'polls/calendar.html', context)
+
+
+# =================================================================
 
 
 @login_required(login_url="/")
@@ -35,6 +42,9 @@ def createGig(request):
     return render(request, 'polls/gig-form.html', context)
 
 
+# =================================================================
+
+
 @login_required(login_url="/")
 def createPoll(request):
     form = QuestionForm()
@@ -49,18 +59,7 @@ def createPoll(request):
     return render(request, 'polls/poll-form.html', context)
 
 
-# def updateGig(request, pk):
-#     gig = ConfirmedGigs.objects.get(id=pk)
-#     form = ConfirmedGigsForm(instance=gig)
-
-#     if request.method == 'POST':
-#         form = ConfirmedGigsForm(request.POST, instance=gig)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('/calendar/')
-
-#     context = {'form': form}
-#     return render(request, 'polls/gig-form.html', context)
+# =================================================================
 
 
 class IndexView(generic.ListView):
@@ -72,9 +71,15 @@ class IndexView(generic.ListView):
         return Question.objects.all()
 
 
+# =================================================================
+
+
 class DetailView(generic.DetailView):
     model = Question
     template_name = "polls/detail.html"
+
+
+# =================================================================
 
 
 class ResultsView(generic.DetailView):
@@ -82,9 +87,17 @@ class ResultsView(generic.DetailView):
     template_name = "polls/results.html"
 
 
+# =================================================================
+
+
 @login_required(login_url="/")
 def vote(request, question_id):
+
     question = get_object_or_404(Question, pk=question_id)
+
+    if Voter.objects.filter(poll_id=question_id, user_id=request.user.id).exists():
+        return render(request, "polls/detail.html", {"question": question, "error_message": "You have already voted on this poll"})
+
     try:
         selected_choice = question.choice_set.get(pk=request.POST["choice"])
     except (KeyError, Choice.DoesNotExist):
@@ -100,7 +113,10 @@ def vote(request, question_id):
     else:
         selected_choice.votes += 1
         selected_choice.save()
+        return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+
+# =================================================================
