@@ -2,7 +2,7 @@ from typing import Any
 from django.contrib import admin
 
 
-from .models import Choice, Question, ConfirmedGigs, NameTag
+from .models import Choice, Question, ConfirmedGigs, NameTag, Vote
 
 
 class ChoiceInline(admin.TabularInline):
@@ -24,3 +24,4 @@ class QuestionAdmin(admin.ModelAdmin):
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(ConfirmedGigs)
 admin.site.register(NameTag)
+admin.site.register(Vote)

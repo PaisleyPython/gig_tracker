@@ -16,7 +16,7 @@ TODO:
 
 - Clean code
 - Make use of environment variables for twilio details. 
-- Figure out why signal is sending 2 messages every executuion.
+- Figure out why signal is sending 2 messages every executuion. could be model class
 - Create phonebook for users to use with signals
 - Think about how you're going to deploy this application.. Is it going to be off the back of the website. 
 
