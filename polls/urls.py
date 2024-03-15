@@ -16,7 +16,7 @@ urlpatterns = [
 
     path("create-gig/", views.createGig, name="create-gig"),
 
-    path("create-poll/", views.createPoll, name="create-poll"),
+    # path("create-poll/", views.createPoll, name="create-poll"),
 
 
 ]

@@ -5,10 +5,10 @@ from .models import Choice
 import os
 from twilio.rest import Client
 
-# TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
-# TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
-# MY_PHONE_NUMBER = os.getenv('MY_PHONE_NUMBER ')
-# TWILIO_PHONE_NUMBER = os.getenv('TWILIO_PHONE_NUMBER')
+# SID = os.getenv('SID')
+# TOKEN = os.getenv('TOKEN')
+# NUMBER = os.getenv('NUMBER ')
+# T_NUMBER = os.getenv('T_NUMBER')
 
 # # TODO Figure out why code is running twice. Likely to do with the fact that 'question_choice' has 2 fields.
 

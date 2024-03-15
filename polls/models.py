@@ -41,6 +41,7 @@ class Vote(models.Model):
         Choice, django.db.models.deletion.SET_NULL, related_name="user_votes", null=True, blank=True)
     user = models.ForeignKey(
         User, on_delete=django.db.models.deletion.SET_NULL, related_name="user_votes", null=True, blank=True)
+    tags = models.ManyToManyField('NameTag', blank=True)
     # timestamp = models.DateTimeField(default=timezone.now)
 
     class Meta:
@@ -65,11 +66,16 @@ class ConfirmedGigs(models.Model):
                           primary_key=True, editable=False)
 
     def __str__(self):
-        return self.venue
+        return self.venue\
+
 
 
 class NameTag(models.Model):
     name = models.CharField(max_length=50)
+    # user = models.ForeignKey(
+    #     User, on_delete=django.db.models.deletion.SET_NULL, related_name="user_votes", null=True, blank=True)
+    # vote = models.ForeignKey(
+    #     Vote, on_delete=models.CASCADE, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)

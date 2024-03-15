@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views import generic, View
-from .models import Choice, Question, ConfirmedGigs, Vote, User
+from .models import Choice, Question, ConfirmedGigs, Vote, User, NameTag
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .forms import ConfirmedGigsForm, QuestionForm
@@ -47,18 +47,18 @@ def createGig(request):
 # =================================================================
 
 
-@login_required(login_url="/")
-def createPoll(request):
-    form = QuestionForm()
+# @login_required(login_url="/")
+# def createPoll(request):
+#     form = QuestionForm()
 
-    if request.method == 'POST':
-        form = QuestionForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/index/')
+#     if request.method == 'POST':
+#         form = QuestionForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/index/')
 
-    context = {'form': form}
-    return render(request, 'polls/poll-form.html', context)
+#     context = {'form': form}
+#     return render(request, 'polls/poll-form.html', context)
 
 
 # =================================================================
@@ -91,28 +91,7 @@ class ResultsView(generic.DetailView):
 
 # =================================================================
 
-# @login_required(login_url="/")
-# def vote(request, question_id):
-#     question = get_object_or_404(Choice, pk=question_id)
-
-#     if Vote.objects.filter(poll_id=question_id, user_id=request.user.id).exists():
-#         return render(request, "polls/detail.html", {"question": question, "error_message": "You have already voted on this poll"})
-#     else:
-# #         question.votes += 1
-#         question.save()
-#         Vote.objects.create(voter=request.user, choice=question)
-#         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
-
-
-# @login_required(login_url="/")
-# def vote(request, question_id):
-
-#     question = get_object_or_404(Question, pk=question_id)
-
-#     if Vote.objects.filter(poll_id=question_id, user_id=request.user.id).exists():
-#         return render(request, "polls/detail.html", {"question": question, "error_message": "You have already voted on this poll"})
-
-
+@login_required(login_url="/")
 def vote(request, question_id):
 
     question = get_object_or_404(Question, pk=question_id)
@@ -137,6 +116,10 @@ def vote(request, question_id):
         selected_choice.save()
         Vote.objects.create(poll_id=question_id,
                             user_id=request.user.id, choice=selected_choice)
+
+        if str(selected_choice) == "Y":
+            NameTag.objects.create(name=request.user)
+
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
 
     #
