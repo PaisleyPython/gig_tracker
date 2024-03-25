@@ -26,7 +26,6 @@ def calendar(request):
     context = {'calendar': calendar, 'votes': votes}
     return render(request, 'polls/calendar.html', context)
 
-
 # =================================================================
 
 
@@ -44,21 +43,35 @@ def createGig(request):
     return render(request, 'polls/gig-form.html', context)
 
 
+# @login_required(login_url="/")
+# def updateGig(request):
+#     form = ConfirmedGigsForm()
+
+#     if request.method == 'POST':
+#         form = ConfirmedGigsForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/calendar/')
+
+#     context = {'form': form}
+#     return render(request, 'polls/gig-form.html', context)
+
+
 # =================================================================
 
 
-# @login_required(login_url="/")
-# def createPoll(request):
-#     form = QuestionForm()
+@login_required(login_url="/")
+def createPoll(request, *args, **kwargs):
+    form = QuestionForm()
 
-#     if request.method == 'POST':
-#         form = QuestionForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('/index/')
+    if request.method == 'POST':
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/polls/')
 
-#     context = {'form': form}
-#     return render(request, 'polls/poll-form.html', context)
+    context = {'form': form}
+    return render(request, 'polls/poll-form.html', context)
 
 
 # =================================================================
@@ -97,7 +110,8 @@ def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
 
     if Vote.objects.filter(poll_id=question_id, user_id=request.user.id).exists():
-        return render(request, "polls/detail.html", {"question": question, "error_message": "You have already voted on this poll"})
+        return render(request, "polls/detail.html",
+                      {"question": question, "error_message": "You have already voted on this poll"})
 
     try:
         selected_choice = question.choice_set.get(pk=request.POST["choice"])
@@ -114,77 +128,35 @@ def vote(request, question_id):
     else:
         selected_choice.votes = F("votes") + 1
         selected_choice.save()
-        Vote.objects.create(poll_id=question_id,
-                            user_id=request.user.id, choice=selected_choice)
+        gig_id = Vote.objects.create(poll_id=question_id,
+                                     user_id=request.user.id, choice=selected_choice)
 
-        if str(selected_choice) == "Y":
-            NameTag.objects.create(name=request.user)
+        if str(selected_choice) == "Yay":
+            current_user = NameTag.objects.create(name=request.user)
+
+            createGigCard(question_id)
+
+            gig = ConfirmedGigs.objects.get(request=question)
+            gig.tags.add(current_user)
 
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
 
-    #
-    #
-    #
-    #
-    #
-    #
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
-# =================================================================
+# ===============================================================
 
 
-# class PollView(View):
-# class PollView(generic.DetailView):
+def createGigCard(question_id):
+    question = get_object_or_404(Question, pk=question_id)
 
-#     def get_poll_results(self, poll):
-#         poll_results = []
-#         for choice in poll.choices.all():
-#             voteCount = Vote.objects.filter(poll=poll, choice=choice).count()
-#             poll_results.append([choice.name, voteCount])
-#         return poll_results
+    if ConfirmedGigs.objects.filter(
+            request=question, venue="TBC", fee="TBC", set_type="TBC", additional_info="PENDING AVAILABILITY CONFIRMATION").exists():
+        pass
+    else:
+        ConfirmedGigs.objects.create(
+            request=question, venue="TBC", fee="TBC", set_type="TBC", additional_info="PENDING AVAILABILITY CONFIRMATION")
 
-#     def get(self, request, poll_id):
-#         poll = Question.objects.get(id=poll_id)
-#         poll_results = self.get_poll_results(poll)
-#         return render(
-#             request,
-#             template_name="polls/detail.html",
-#             context={
-#                 "user": get_user(request),
-#                 "poll": poll,
-#                 "poll_results": poll_results,
-#             }
-#         )
 
-#     def post(self, request, poll_id):
+#
+# ===============================================================
+#
 
-#         user = get_user(request)
-#         if user is None:
-#             return HttpResponse("Please login to continue")
-
-#         requestData = request.POST
-
-#         choice_id = requestData.get('choice_id')
-
-#         poll = Question.objects.get(id=poll_id)
-#         choice = Choice.objects.get(id=choice_id)
-#         Vote.objects.update_or_create(
-#             poll=poll,
-#             user=user,
-#             defaults={
-#                 "choice": choice,
-#             }
-#         )
-
-#         poll_results = self.get_poll_results(poll)
-
-#         return render(
-#             request,
-#             template_name="polls/detail.html",
-#             context={
-#                 "poll": poll,
-#                 "success_message": "Voted Successfully",
-#                 "poll_results": poll_results,
-#             }
-#         )
+core_members = ["Simon", "Blod", "Ben", "John", "Arwel", "Will"]

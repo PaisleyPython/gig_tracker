@@ -2,21 +2,16 @@
 
 {% block content %}
 
-    <!-- Main Section -->
-    <div class="auth__header text-center">
-        
-<!-- <div class="font"> -->
+
+<div class="auth__header text-center">
 <div class="gigform">
     <main class="formPage my-xl">
     <div class="content-box">
-    <!-- <div class="formWrapper"> -->
-    <!-- <a class="backButton" href="#"><i class="im im-angle-left"></i></a> -->
         <form class="form" method="POST" enctype="multipart/form-data ">
-                
+
             {% for field in form %}
             {% csrf_token %}
-                
-            <!-- Input:Text -->
+            
             <div class="form__field" >
             <label style="color:#76f4b1" for="formInput#text">{{field.label}}</label>
             {{field}}

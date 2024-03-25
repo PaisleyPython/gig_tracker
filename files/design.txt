@@ -4,23 +4,22 @@ date requests. Users will receive text prompt with link to poll. If users dont v
 Once date has been added, then it will be added to confirmed page, which ideally will have link to a google calander API. 
 
 
-TODO: 
+TODO for deployment: 
 
-- Usersnames and passwords arent currently working.. 
-- Ensure user can only vote once per date
-- have requirements for core band members. (drums, guitars, vocals, and 2 brass)
-- Have tags update to gig cards ever time user casts their vote. 
-- Look to integrate google API for calendar
+- Change 'create gig' to 'update gig' with functionality. 
+- Assess how many 'yes' votes required before gig card is generated. 
 - Fix buttons for polls and results page
-- Clean up poll index page
-
+- Clean up poll index page -
 - Clean code
 - Make use of environment variables for twilio details. 
 - Figure out why signal is sending 2 messages every executuion. could be model class
-- Create phonebook for users to use with signals
 - Think about how you're going to deploy this application.. Is it going to be off the back of the website. 
 
-
+TODO additional features: 
+- have requirements for specific core band members. (drums, guitars, vocals, and 2 brass)
+- Have polls app create with choices
+- Create phonebook for users to use with signals
+- Look to integrate google API for calendar
 
 
 
@@ -64,7 +63,14 @@ Once threshold has been reached, gig will automatically get accepted and uploade
 text message notifications then need to be triggered and send to the members. 
 I would also then like for the gmail calendar to be updated if this is possible.. 
 
+=============================================================
 
+# Always return an Http
+# ResponseRedirect after successfully dealing
+# with POST data. This prevents data from being posted twice if a
+# user hits the Back button.
+
+================================
 
 
 gmail api = https://v1.nocodeapi.com/disco_panther/calendar/sRJIrdwKtVyDuCJI
@@ -77,3 +83,43 @@ git checkout master
 git pull origin master
 git merge <name>
 git push origin master
+
+---------------------------------------
+
+2) For removing all data from table:
+
+python manage.py shell
+>> from {app_name}.models import {model_name}
+>> {model_name}.objects.all().delete()
+
+
+------------------------
+
+ c1 = c1.filter(venue="TBC")[0]
+ >>> c1
+<ConfirmedGigs: TBC>
+
+>>> NameTag.objects.all()
+<QuerySet [<NameTag: admin>, <NameTag: admin>, <NameTag: Simon>, <NameTag: Simon>, <NameTag: John>, <NameTag: John>, <NameTag: Mark>, <NameTag: Will>, <NameTag: Arwel>, <NameTag: Simon>]> 
+>>> ConfirmedGigs.objects.all()
+<QuerySet [<ConfirmedGigs: TBC>, <ConfirmedGigs: TBC>]>
+
+>>> c1 = ConfirmedGigs.objects.filter(venue='TBC')[0]
+
+>>> n1 = NameTag.objects.filter()[2] 
+>>> n1
+<NameTag: Simon>
+
+>>> c1.tags.add(n1)                  
+>>> c1
+<ConfirmedGigs: TBC>
+>>> c1.tags.all()
+<QuerySet [<NameTag: Simon>]>
+
+
+>>> from polls.models import NameTag
+>>> from polls.models import ConfirmedGig
+>>> c1 = ConfirmedGigs.objects.filter()[0]
+>>> n1 = NameTag.objects.all()
+>>> for name in n1:
+...     c1.tags.add(name)

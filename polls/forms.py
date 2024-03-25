@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import ConfirmedGigs, Choice
+from .models import ConfirmedGigs, Choice, Question
 
 
 class ConfirmedGigsForm(ModelForm):
@@ -24,12 +24,22 @@ class ConfirmedGigsForm(ModelForm):
         # for name, field in self.fields.items():
         #     field.widget.attrs.update({'class': 'input'})
 
+# ===========================================================================================================
+
 
 class QuestionForm(ModelForm):
     class Meta:
-        model = Choice
-        fields = ['question']
+        model = Question
+        # model = Choice
+
+        fields = ['question_text']
+
+        # fields = ['question', {'choice_text': 'Yay', 'choice_text': 'Nay'}]
 
         widgets = {
-            'question': forms.TextInput(attrs={'placeholder': 'Date: xx/xx/xxxx'}),
+            'question_text': forms.TextInput(attrs={'placeholder': 'Date: xx/xx/xxxx'}),
+            # 'choice_text': forms.TextInput(attrs={'placeholder': 'Date: xx/xx/xxxx'}),
+            # 'choice_text': forms.TextInput(attrs={'placeholder': 'Date: xx/xx/xxxx'}),
+
+
         }

@@ -1,15 +1,70 @@
+
 {% extends 'home/main.html' %}
 
 {% block content %}
 
-<div action="/calendar/"class="display">
-        <form method="POST">
+
+<div class="auth__header text-center">
+<div class="gigform">
+    <main class="formPage my-xl">
+    <div class="content-box">
+        <form class="form" method="POST" enctype="multipart/form-date">
+            <div class="form__field" >
             {% csrf_token %}
+
+            {% for field in form %}
+            <label style="color:#76f4b1" for="formInput#text">{{field.label}}</label>
+            {{field}}
+            <br>
             
-            {{form.as_p}}
             
-            <input style="background-color: purple; width: 100px; height: 25px;" type="submit">
+        </div>  
+            {% endfor %}
+            <br>
+            <input style="background-color: #76f4b1; width: 100px; height: 25px; border-radius: 8px;" type="submit">
         </form>
-    </div>  
+    </div>
+</div>
+</div>
+</div>
+
+
+</main>
+
 
 {% endblock content %}
+
+
+
+<!-- 
+
+    <div class="auth__header text-center">
+        <div class="gigform">
+            
+            <div action="/calendar/"class="display">
+                <main class="formPage my-xl">
+                    <div class="content-box" >
+                        <form class="form" method="POST" enctype="multipart/form-dat ">
+                {% for field in form %}
+                {% csrf_token %}
+                
+                
+            <div class="form__field" >
+                {{form}}
+            {{form.as_p}}
+            {{form.choice}}
+            
+        </div>
+        
+        
+        
+        
+        {% endfor %}
+        
+        <input style="background-color: #76f4b1; color: purple; width: 120px; height: 30px; border-radius: 8px;" type="submit">
+    </form>
+</div>  
+
+</div>  
+</div>  
+-->
