@@ -123,3 +123,13 @@ python manage.py shell
 >>> n1 = NameTag.objects.all()
 >>> for name in n1:
 ...     c1.tags.add(name)
+
+
+=========
+
+
+gig cards created
+tags go on card
+if x amount of tags appear on card
+confirmed becomes true
+confirmed gets displayed on card. 

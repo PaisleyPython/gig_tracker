@@ -125,19 +125,18 @@ def vote(request, question_id):
                 "error_message": "You didn't select a choice.",
             },
         )
+
     else:
         selected_choice.votes = F("votes") + 1
         selected_choice.save()
         gig_id = Vote.objects.create(poll_id=question_id,
                                      user_id=request.user.id, choice=selected_choice)
 
-        if str(selected_choice) == "Yay":
+        if str(selected_choice) == "Y":
             current_user = NameTag.objects.create(name=request.user)
+            match_core_members(question_id, current_user)
 
-            createGigCard(question_id)
-
-            gig = ConfirmedGigs.objects.get(request=question)
-            gig.tags.add(current_user)
+        createGigCard(question_id)
 
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
 
@@ -145,6 +144,7 @@ def vote(request, question_id):
 
 
 def createGigCard(question_id):
+    """Craetes the display card for gigs on the calendar view."""
     question = get_object_or_404(Question, pk=question_id)
 
     if ConfirmedGigs.objects.filter(
@@ -155,8 +155,30 @@ def createGigCard(question_id):
             request=question, venue="TBC", fee="TBC", set_type="TBC", additional_info="PENDING AVAILABILITY CONFIRMATION")
 
 
-#
 # ===============================================================
-#
 
-core_members = ["Simon", "Blod", "Ben", "John", "Arwel", "Will"]
+def match_core_members(question_id, current_user):
+    question = get_object_or_404(Question, pk=question_id)
+
+    gig = ConfirmedGigs.objects.get(request=question)
+    gig.tags.add(current_user)
+
+    # TODO This works but unfortunately it's changing all cards to confirmed.
+
+    core_members = ["Simon", "Blod", "John", "Arwel", "Will"]
+    core_members.sort()
+    print(f"Core list: {core_members}")
+
+    qs = gig.tags.all()
+    qs_list = list()
+    for name in qs:
+        qs_list.append(str(name))
+        qs_list.sort()
+    print(f"qs list: {qs_list}")
+    if qs_list == core_members:
+        print("WE HAVE MATCHED CORE MEMBERS")
+        # ConfirmedGigs.objects.filter(confirmed=None).update(confirmed=True)
+        gig.confirmed = True
+        gig.save()
+
+        # gig.filter(confirmed=None).update(confirmed=True)

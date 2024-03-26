@@ -14,10 +14,20 @@
 
         {% for gigs in calendar %}
 
+
         <div class="column">
         <div class="card gig">
         <div class="card__body">
+
+            {% if gigs.confirmed == True %}
+            <h3 class="project__title">CONFIRMED!</h3>
+            {% else %}
+            <h3 class="project__title">Awaiting Confirmation..</h3>
+            {% endif %}
+            <br>
             <h3 class="project__title">{{gigs.request}}</h3>
+
+            
             <ul style="font-size: medium;">
                 <li>{{gigs.venue}}</li>
                 <li>{{gigs.fee}}</li>
@@ -28,10 +38,12 @@
             <div class="project__tags" >
 
             {% for tag in gigs.tags.all %}
+
                 <span class="tag tag--pill tag--main"">
                     <small>{{tag}}</small>
                 </span>
-                {% endfor %}
+
+            {% endfor %}
 
 
             </div>
