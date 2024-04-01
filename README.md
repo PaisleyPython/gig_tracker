@@ -52,7 +52,7 @@ Once a set number votes has been submitted, gigs will transfer to the calander p
 <img width="800" alt="scrnshot2" src="https://github.com/PaisleyPython/gig_tracker/assets/148840962/f5409a30-9b08-43b2-9537-1e82147516bd">
 
 <h3>Create the poll</h3>
-<img width="800" alt="scrnshot4" src="https://github.com/PaisleyPython/gig_tracker/assets/148840962/1695361b-9eb6-43c1-be1c-1b3fb36d953e">
+<img width="800" alt="scrnshot4" src="https://github.com/PaisleyPython/gig_tracker/assets/148840962/b57d2d74-c075-4918-ab50-3a01a6da7fe1">
 
 <h3>Member receives text promt with link upon creation (example link used here)</h3>
 <img width="800" alt="scrnshot4" src="https://github.com/PaisleyPython/gig_tracker/assets/148840962/9b2fdc5b-0d25-41ac-89c8-49e2e1acae3d">
