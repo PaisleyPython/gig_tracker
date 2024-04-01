@@ -56,8 +56,6 @@ Once a set number votes has been submitted, gigs will transfer to the calander p
 <h3>Member receives text promt with link upon creation (example link used here)</h3>
 <img width="800" alt="scrnshot4" src="https://github.com/PaisleyPython/gig_tracker/assets/148840962/9b2fdc5b-0d25-41ac-89c8-49e2e1acae3d">
 
-<h3>Ability to update gig information</h3>
-<img width="800" alt="scrnshot3" src="https://github.com/PaisleyPython/gig_tracker/assets/148840962/92a4b7c3-59dc-4014-b541-ac1db73073bb">
 
 <h3>Vote on the poll</h3>
 <img width="800" alt="scrnshot4" src="https://github.com/PaisleyPython/gig_tracker/assets/148840962/dab164ea-8d75-4e8b-b187-408dd88f1824">
@@ -68,6 +66,8 @@ Once a set number votes has been submitted, gigs will transfer to the calander p
 <h3>Gig cards are generated on calendar page showing info and members playing the gig</h3>
 <img width="800" alt="scrnshot4" src="https://github.com/PaisleyPython/gig_tracker/assets/148840962/7f0dcd7a-5635-4589-8e9d-fa68f6bf33bd">
 
+<h3>Ability to update gig information</h3>
+<img width="800" alt="scrnshot3" src="https://github.com/PaisleyPython/gig_tracker/assets/148840962/92a4b7c3-59dc-4014-b541-ac1db73073bb">
 
 
 
