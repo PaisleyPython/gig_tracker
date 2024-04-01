@@ -3,7 +3,7 @@
 <p>
 This polling application was designed to streamline productivity through automation, simplicity and ease of use.
 Chasing 12 band members for their availability can be frustrating. Now, one singular date entry will lead to a text message promt for each band member to visit the poll and state their availability. Failure to do so will result in a futher text promt every 24hrs. 
-Once a set number votes has been submitted, gigs will transfer to the calander page, showing all relevent information including name tags of all the members listed to play that gig. It's serves as a one stop destination for memebers to stay up to date with the gig calendar. 
+Once a set number votes has been submitted, gigs will transfer to the calander page, showing all relevent information including name tags of all the members listed to play that gig. It's serves as a one stop destination for members to stay up to date with the gig calendar. 
 </p>
 
 <h2>
