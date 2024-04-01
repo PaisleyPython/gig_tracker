@@ -37,6 +37,7 @@ Once a set number votes has been submitted, gigs will transfer to the calander p
 
 * Sync confirmed gigs with google calendar
 * Text promts for confirmed gigs
+* Various appearance tweaks & code clean up
 
 <hr>
 
