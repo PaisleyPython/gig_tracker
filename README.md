@@ -42,3 +42,23 @@ Once a set number votes has been submitted, gigs will transfer to the calander p
 
 
 
+<h3>User Login</h3>
+<img width="1000" alt="scrnshot1" src="https://github.com/PaisleyPython/gig_tracker/assets/148840962/98282ad9-e8bc-4491-b157-dd36c03f55e8">
+
+<h3>Active Polls</h3>
+<img width="1000" alt="scrnshot2" src="https://github.com/PaisleyPython/gig_tracker/assets/148840962/f5409a30-9b08-43b2-9537-1e82147516bd">
+
+<h3>Ability to update gig information</h3>
+<img width="1000" alt="scrnshot3" src="https://github.com/PaisleyPython/gig_tracker/assets/148840962/92a4b7c3-59dc-4014-b541-ac1db73073bb">
+
+<h3>User Login</h3>
+<img width="1000" alt="scrnshot4" src="">
+
+<h3>User Login</h3>
+<img width="1000" alt="scrnshot5" src="">
+
+
+
+
+
+
